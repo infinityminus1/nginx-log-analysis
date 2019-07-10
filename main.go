@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"log"
 	"bufio"
+	"fmt"
 	"io"
+	"log"
+	"os"
 	"strings"
 )
 
@@ -24,10 +24,12 @@ func main() {
 
 	// loop through line entries, add IPs to the map, increment the counter.
 	accessLogReader := bufio.NewReader(accessLog)
-
+	
 	for {
 		line, err := accessLogReader.ReadString('\n')
-		if err == io.EOF { break }
+		if err == io.EOF {
+			break
+		}
 
 		ip := strings.Split(line, "-")[0]
 
