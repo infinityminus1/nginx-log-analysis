@@ -24,7 +24,7 @@ func main() {
 
 	// loop through line entries, add IPs to the map, increment the counter.
 	accessLogReader := bufio.NewReader(accessLog)
-	
+
 	for {
 		line, err := accessLogReader.ReadString('\n')
 		if err == io.EOF {
@@ -43,6 +43,6 @@ func main() {
 	// print the IPs map
 	fmt.Println(ips)
 	for key, value := range ips {
-		fmt.Printf("%s\t=>\t%d requests.\n", key, value)
+		fmt.Printf("%d request(s) from \t=>\t%s.\n", value, key)
 	}
 }
